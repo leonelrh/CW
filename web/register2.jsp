@@ -5,7 +5,9 @@
   Time: 14:24
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Title</title>
@@ -14,8 +16,6 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -31,11 +31,6 @@
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-
-
-
-
-
 </head>
 <body >
 
@@ -43,11 +38,9 @@
 
 <div class="container">
 
-
     <div class="panel panel-primary">
         <div class="panel-heading">Crear usuario </div>
         <div class="panel-body">
-
 
             <form class="form-horizontal" action="organizers" method="post">
                 <h2>${action == 'edit' ? "Editar Perfil" : "Nuevo Perfil Organizador"}</h2><br>
@@ -59,6 +52,7 @@
                         />
                     </div>
                 </div>
+
     <div class="form-group row">
         <label for="inputId" class="col-sm-2 col-form-label">ID </label>
         <div class="col-sm-4">
@@ -124,7 +118,6 @@
         </div>
     </div>
 
-
                 <div class="form-group">
 
                     <div class="col-md-6">
@@ -145,7 +138,6 @@
 
 </body>
 
-
 <!--   Core JS Files   -->
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -159,7 +151,5 @@
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="js/material-kit.js" type="text/javascript"></script>
-
-
 
 </html>

@@ -1,120 +1,108 @@
 <%@ page import="pe.com.coworking.models.*" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: leone
-  Date: 16/04/2018
-  Time: 23:48
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title> CoWorking </title>
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <title>Workspaces</title>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="image/Logo.jpg">
+    <link rel="icon" href="image/Logo.jpg">
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/material/material-kit.css?v=2.0.0">
+    <!-- Documentation extras -->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="css/material/demo.css" rel="stylesheet" />
+    <link href="css/material/vertical-nav.css" rel="stylesheet" />
+
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 50%;
+            width: 50%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+
+
+    </style>
 
 </head>
-<body>
+<body backgro>
 
-<!-- Navigation -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+<nav class="navbar navbar-default navbar-expand-lg" role="navigation-demo">
     <div class="container">
-        <a class="navbar-brand" href="index.jsp"> CoWorking</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="/presentation.html"> Workspaces </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html"> Acerca </a>
+                    <a href="#pablo" class="nav-link">
+                        <i class="material-icons">apps</i>  Nosotros
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html"> Servicios </a>
+                    <a href="#pablo" class="nav-link">
+                        <i class="material-icons">view_day</i>   Servicios
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html"> Contacto </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="newUser.jsp"> Registrate </a>
+                    <a href="#pablo" class="nav-link">
+                        <i class="material-icons">view_carousel</i> Oficinas
+                    </a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Iniciar sesion
+                <li class="nav-item">
+                    <a href="#pablo" class="nav-link">
+                        <i class="material-icons">fingerprint</i> Iniciar
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="login.jsp">PERFIL </a>
-                        <a class="dropdown-item" href="sidebar.html"> Invitar </a>
-                        <a class="dropdown-item" href="faq.html">Configuracion </a>
-                        <a class="dropdown-item" href="404.html"> Salir </a>
-                    </div>
                 </li>
             </ul>
         </div>
+        <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container-->
 </nav>
 
-<!-- Page Content -->
-<div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">
-        <small>
-            <a href="#"> </a>
-        </small>
-    </h1>
-    <p>
 
-    </p>
+<div class="container" style="margin-top:40px">
 
 
     <div class="row">
 
-        <div class="col-lg-8">
+        <div class="col-sm-8">
             <% Office office = (Office)request.getAttribute("office");
                 int var=office.getId();
             %>
 
-<jsp:useBean id="service" class="pe.com.coworking.services.CWService"/>
-<c:forEach var="office" items="<%=service.getOfficesById(var)%>">
-
-
-
+               <jsp:useBean id="service" class="pe.com.coworking.services.CWService"/>
+                 <c:forEach var="office" items="<%=service.getOfficesById(var)%>">
 
             <!-- Preview Image -->
             <img class="img-fluid rounded" src="image/${office.id}.jpg" >
-
-            <hr>
+                     <p></p>
 
             <p> INFORMACION DE LA OFICINA </p>
-
-            <hr>
-
-<%--
-            <% Office office = (Office)request.getAttribute("office");
-                response.getWriter().print("<p> La variable vale " + office.getId() + "</p>");
-            %>--%>
-
-
-
-        <%--    <%
-           String vari = "1001";
-            int var=office.getId();%>--%>
-
-     <%--       Integer variable = (Integer)req.getAttribute("unEntero");--%>
-
-
 
                 <p> Title : ${office.title}</p>
                 <p> Descripcion: ${office.description}</p>
@@ -124,69 +112,47 @@
                 <p> Phone : ${office.phone}</p>
 
             </c:forEach>
+
+
+
             <p>
 
             </p>
             <hr>
 
-            <p> SERVICIOS  </p>
-
-            <hr>
-
-            <blockquote class="blockquote">
-                <p class="mb-0">  </p>
-                <footer class="blockquote-footer">S
-                    <cite title="Source Title">S</cite>
-                </footer>
-            </blockquote>
+            <p> SERVICIOS </p>
 
 
 
-            <div class="row">
-
-                <%--<%String ide=(String)request.getSession().getAttribute("uowner");%>--%>
-                <%--<c:forEach var="court" items="<%=service.getCourtsByOwner(ide)%>">--%>
                 <% String variable = "1001"; %>
                 <%String ide=(String)request.getSession().getAttribute("uowner");%>
                 <c:forEach var="servic" items="<%=service.getServicesByOffice(variable)%>">
                     <div class="col-md-4">
-                        <div class="thumbnail">
-                                <%--<a href="" target="_blank">--%>
-                            <%--<img src="image/court/${servic.id}.jpg" alt="Lights" style="width:100%" data-toggle="modal" data-target="#${servic.id}">--%>
-                            <div class="caption">
-                                <p>${servic.namService}</p>
-                                <p>${servic.price}</p>
-                            </div>
 
+                                <table class="table">
+                                <td>${servic.namService}</td>
+                                <td>${servic.description}</td>
+                                </table>
 
-
-
-                                <%--</a>--%>
-                        </div>
                     </div>
                 </c:forEach>
 
-            </div>
-
 
             <hr>
 
-            <hr>
 
             <p> COMENTARIOS  </p>
-
-            <hr>
 
             <!-- Comments Form -->
             <div class="card my-4">
                 <h5 class="card-header">Escribe un comentario</h5>
                 <div class="card-body">
-                    <form>
+
                         <div class="form-group">
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
+
                 </div>
             </div>
 
@@ -229,46 +195,60 @@
 
         <!-- Sidebar Widgets Column -->
 
-        <div class="col-md-4">
+        <div class="col-sm-4">
           <%--  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">--%>
 
+              <form action="reservations" method="post">
             <div class="card my-4  h-100" >
                 <h5 class="card-header"> Detalle Reserva </h5>
                 <div class="card-body ">
 
-                    Precio : S/.<%=office.getPrice()%> /dia <p></p>
 
-                    Evaluacion : 4/5 <p></p>
+                    Precio: S/ <%=office.getPrice()%> /dia <p></p>
 
-                    <div class="container">
-                        <div class='col-md-5'>
-                            <div class="form-group">
-                                <div class='input-group date' id='datetimepicker6'>
-                                    Fecha Inicio:<input type="datetime-local"/>
-                                    <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                    Evaluacion: 4/5 <p></p>
+
+
+                    Fecha Inicio.
+
+                                <div id="datetimepicker4" class="input-append">
+                                    <input data-format="yyyy-MM-dd" type="text"/>
+                                    <span class="add-on">
+
+                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class='col-md-5'>
-                            <div class="form-group">
-                                <div class='input-group date' id='datetimepicker7'>
-                                    <%-- <input type="datetime-local" class="form-control" />--%>
-                                    Fecha Fin:<input type="datetime-local" />
-                                    <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-                                </div>
-                            </div>
-                        </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('#datetimepicker4').datetimepicker({
+                                            pickTime: false
+                                        });
+                                    });
+                                </script>
+
+                    Fecha End.
+
+
+                    <div id="datetimepicker5" class="input-append">
+                        <input data-format="yyyy-MM-dd" type="text"/>
+                        <span class="add-on">
+                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
                     </div>
+                    <script type="text/javascript">
+                        $(function() {
+                            $('#datetimepicker5').datetimepicker({
+                                pickTime: false
+                            });
+                        });
+                    </script>
 
-                    Direccion <p></p>
+                    N° Personas<p></p>
+                    <select name="num">
+                        <c:forEach var = "i" begin = "1" end = "5">
+                            <option value="${i}">${i}</option>
+                            <c:out value = "${i}"/>
+                        </c:forEach>
+                    </select>
 
-                    N° Personas <p></p>
-
-                    Compartir <p></p>
 
                     <%  Office office1=service.getOfficeById(var);%>
 
@@ -278,14 +258,9 @@
                 </span>
                     </div><p></p>
 
-
-
-
                     <div class="modal fade" id="<%=office1.getId()%>" role="dialog">
                         <div class="modal-dialog">
 
-
-                            <!-- Modal content-->
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title"><%=office1.getTitle()%></h4>
@@ -293,55 +268,107 @@
 
                                 </div>
                                 <div class="modal-body">
-                                    <img src="image/<%=office1.getId()%>.jpg" width="450" height="200"><p></p>
-                                    CAPACIDAD: <%=office1.getCapacity()%><p></p>
-                                    ADDRESS: <%=office1.getAddress()%><p></p>
-                                    PRICE: <%=office1.getPrice()%><p></p>
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success"><a href="courts?action=edit&id=<c:out value="${court.id}"/>"> Reservar </a></button>
+                                    <input type="hidden" value="${"agregate"}" name="action"/>
+                                    <button type='submit' class='btn btn-success' name='finish' value="Ingresar">Registrar</button>
                                 </div>
+
                             </div>
 
                         </div>
                     </div>
 
-                    <button class="btn btn-info btn-lg" type="button"> Agregar a Calendario </button>
+                    <script type="text/javascript">(function () {
+                        if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
+                        if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
+                            var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                            s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
+                            s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
+                            var h = d[g]('body')[0];h.appendChild(s); }})();
+                    </script>
 
+                    <!-- 3. Place event data -->
+                    <span class="addtocalendar atc-style-blue">
+        <var class="atc_event">
+            <var class="atc_date_start">2014-05-04 12:00:00</var>
+            <var class="atc_date_end">2014-05-04 18:00:00</var>
+            <var class="atc_timezone">Europe/London</var>
+            <var class="atc_title">Star Wars Day Party</var>
+            <var class="atc_description">May the force be with you</var>
+            <var class="atc_location">Tatooine</var>
+            <var class="atc_organizer">Luke Skywalker</var>
+            <var class="atc_organizer_email">luke@starwars.com</var>
+        </var>
+    </span>
 
                 </div>
 
             </div>
-
-              <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+              </form>
 
         </div>
 
+
+            <div id="map"></div>
+            <script>
+
+
+                function initMap() {
+                    var myLatLng = {lat: -12.090724, lng: -77.022665};
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: myLatLng
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        title: 'Hello World!'
+                    });
+                }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbNormGFRvtGsc9l3W1SGP9tGkjAZI4Js&callback=initMap">
+            </script>
+
+        <p></p>
+
     </div>
-
-
 
     </div>
     <!-- /.row -->
 
-</div>
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer id="footer">
+
+
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <div class="copyright">
+            &copy; Copyright <strong> CoWorking </strong>. Todos los derechos reservados
+        </div>
     </div>
-    <!-- /.container -->
-</footer>
+</footer><!-- #footer -->
 
-<!-- Bootstrap core JavaScript -->
-<script src="js/jquery.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="js/ladingpage/jquery.min.js"></script>
+<script src="js/ladingpage/bootstrap.bundle.min.js"></script>
+<script src="js/ladingpage/superfish.min.js"></script>
+<script src="js/ladingpage/wow.min.js"></script>
+<script src="js/ladingpage/waypoints.min.js"></script>
+<script src="js/ladingpage/counterup.min.js"></script>
+<script src="js/ladingpage/isotope.pkgd.min.js"></script>
+<script src="js/ladingpage/jquery.touchSwipe.min.js"></script>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Template Main Javascript File -->
+
+<script src="js/ladingpage/main.js"></script>
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
 
 </body>
 </html>

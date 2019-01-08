@@ -11,16 +11,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title> CoWorking </title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.ico">
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
 
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -46,30 +42,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/#/dashboard">MD Pro Angular</a>
+                <a class="navbar-brand" href="indexp.jsp">CoWorking</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/#/dashboard">
-                            <i class="material-icons">dashboard</i> Dashboard
+                    <li class="">
+                        <a href="register.jsp">
+                            <i class="material-icons"></i> NOSOTROS
                         </a>
                     </li>
                     <li class="">
-                        <a href="register.html">
-                            <i class="material-icons">person_add</i> Register
+                        <a href="register.jsp">
+                            <i class="material-icons"></i> SERVICIOS
                         </a>
                     </li>
                     <li class="">
-                        <a href="login.html">
+                        <a href="register.jsp">
+                            <i class="material-icons"></i> OFICINAS
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="login.jsp">
                             <i class="material-icons">fingerprint</i> Login
                         </a>
                     </li>
-                    <li class=" active ">
-                        <a href="lock.html">
-                            <i class="material-icons">lock_open</i> Lock
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -83,11 +80,11 @@
 
                 <div class="wizard-container">
                     <div class="card wizard-card" data-color="green" id="wizardProfile">
-                        <form action="users" method="post">
+                        <form action="FileUploadHandler" method="post" enctype="multipart/form-data">
                             <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
                             <div class="wizard-header">
                                 <h3 class="wizard-title">
-                                    Crea tu Perfil
+                                    Crea tu cuenta
                                 </h3>
                             </div>
 
@@ -97,20 +94,21 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="image/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
-                                                    <input type="file" id="wizard-picture" name="photo">
+                                                    <img src="image/default-avatar.png" class="picture-src" id="wizardPicturePreview" />
+                                                    <input type="file" id="wizard-picture" name="file"/>
                                                 </div>
-                                                <h6>Photo</h6>
+                                                <h6>Foto</h6>
                                             </div>
                                         </div>
+
                                         <div class="col-sm-6">
                                             <div class="input-group">
 													<span class="input-group-addon">
 														<i class="material-icons">face</i>
 													</span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">First Name <small>(required)</small></label>
-                                                    <input name="firstName" type="text" class="form-control">
+                                                    <label class="control-label">Nombre</label>
+                                                    <input name="firstName" type="text" class="form-control"/>
                                                 </div>
                                             </div>
 
@@ -119,8 +117,8 @@
 														<i class="material-icons">record_voice_over</i>
 													</span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Last Name <small>(required)</small></label>
-                                                    <input name="lastName" type="text" class="form-control">
+                                                    <label class="control-label">Apellido </label>
+                                                    <input name="lastName" type="text" class="form-control"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,8 +128,8 @@
 														<i class="material-icons">email</i>
 													</span>
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Email <small>(required)</small></label>
-                                                    <input name="email" type="email" class="form-control">
+                                                    <label class="control-label">Correo</label>
+                                                    <input name="email" type="email" class="form-control"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -140,40 +138,34 @@
                                             <div class="input-group">
 
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Password <small>(required)</small></label>
-                                                    <input name="password" type="password" class="form-control">
+                                                    <label class="control-label">Contraseña </label>
+                                                    <input name="password" type="password" class="form-control"/>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-7 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Address</label>
-                                                <input type="text" class="form-control" name="address">
+                                                <label class="control-label">Direccion</label>
+                                                <input type="text" class="form-control" name="address"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">DNI</label>
-                                                <input type="text" class="form-control" name="dni">
+                                                <input type="text" class="form-control" name="dni"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Phone</label>
-                                                <input type="text" class="form-control" name="phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Points</label>
-                                                <input type="text" class="form-control" name="points">
+                                                <label class="control-label">N° Contacto</label>
+                                                <input type="text" class="form-control" name="phone"/>
                                             </div>
                                         </div>
 
                                     </div>
                                   <div class="text-center">
-                                      <input type="hidden" value="${action == 'edit' ? "update" : "agregate"}" name="action"/>
+                                      <input type="hidden" value="${action == 'edit' ? "update" : "agregate"}" name="action" />
                                 <button type="submit" class="btn btn-success" value="Ingresar">${action == 'edit' ? "Actualizar" : "Registrar"}</button>
 
                             </div>

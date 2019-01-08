@@ -9,213 +9,552 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<!doctype html>
+<html lang="en">
+
 <head>
-    <title> CoWorking </title>
-
     <meta charset="utf-8" />
-
+    <link rel="apple-touch-icon" sizes="76x76" href="image/Logo.jpg" />
+    <link rel="icon" type="image/png" href="image/Logo.jpg" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> Workspaces </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
     <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="css/Dashboard/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="css/Dashboard/material-dashboard.css?v=1.2.1" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <!--     Fonts and icons     -->
 
-    <link href="css/bootstrap5.min.css" rel="stylesheet" />
+    <link href="css/Dashboard/demo.css" rel="stylesheet" />
 
-    <link href="css/material-dashboard.css" rel="stylesheet" />
-
+   <%-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">--%>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/starrr.css">
+    <script src="js/starrr.js"></script>
+    <style type='text/css'>
+        img.ribbon {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            border: 0;
+            cursor: pointer; }
 
+        .container {
+            margin-top: 60px;
+            text-align: center;
+            max-width: 450px; }
 
-    <link href="css/paper-dashboard.css" rel="stylesheet"/>
-    <link href="css/themify-icons.css" rel="stylesheet">
+        input {
+            width: 30px;
+            margin: 10px 0;
+        }
+    </style>
 
 </head>
+
 <body>
-
-
 <div class="wrapper">
-    <div class="sidebar" data-background-color="black" data-color="black" >
+    <div class="sidebar" data-active-color="green" data-background-color="black" data-image="image/sidebar-3.jpg">
+        <!--
+    Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
+    Tip 2: you can also add an image using data-image tag
+    Tip 3: you can change the color of the sidebar with data-background-color="white | black"
+-->
+        <div class="logo">
+            <a href="index.jsp" class="simple-text logo-mini">
+                WS
+            </a>
+            <a href="index.jsp" class="simple-text logo-normal">
+                WORKSPACES
+            </a>
+        </div>
 
-        <div class="sidebar-wrapper" >
-            <div class="logo">
-                <a href="index.jsp" class="simple-text">
-                    CoWorking
-                </a>
+        <div class="sidebar-wrapper">
+            <div class="user">
+                <div class="photo">
+                    <img src="image/profile2.jpg" />
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>
+                                Kevin
+                                <b class="caret"></b>
+                            </span>
+                    </a>
+                    <div class="clearfix"></div>
+                    <div class="collapse" id="collapseExample">
+                        <ul class="nav">
+                            <li>
+                                <a href="#">
+                                    <span class="sidebar-mini"> MP </span>
+                                    <span class="sidebar-normal"> Mi Perfil </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sidebar-mini"> EP </span>
+                                    <span class="sidebar-normal"> Editar Perfil </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sidebar-mini"> S </span>
+                                    <span class="sidebar-normal"> Configuración </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <ul class="nav">
                 <li >
                     <a href="index2.jsp">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li >
-                    <a href=" prueba3.jsp">
-                        <i class="ti-panel"></i>
-                        <p> Registrar Oficina </p>
+                        <i class="material-icons">dashboard</i>
+                        <p> Mi Perfil  </p>
                     </a>
                 </li>
                 <li class="active">
                     <a href="prueba4.jsp">
-                        <i class="ti-view-list-alt"></i>
-                        <p> Oficinas </p>
+                        <i class="material-icons">image</i>
+                        <p> Oficinas  </p>
                     </a>
+                </li>
+
+                <li>
+                    <a href="prueba3.jsp">
+                        <i class="material-icons">content_paste</i>
+                        <p> Registrar
+                        </p>
+                    </a>
+
                 </li>
                 <li>
                     <a href="prueba5.jsp">
-                        <i class="ti-ticket" ></i>
-                        <p> Reservas realizadas </p>
+                        <i class="material-icons">grid_on</i>
+                        <p> Reservas
+                        </p>
                     </a>
+
                 </li>
+
                 <li>
-                    <a href="icons.html">
-                        <i class="ti-files"></i>
-                        <p> Informacion </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="ti-calendar"></i>
-                        <p> Equipo </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="ti-pie-chart"></i>
+                    <a href="chart.jsp">
+                        <i class="material-icons">timeline</i>
                         <p> Dashboard </p>
                     </a>
                 </li>
 
+                <li>
+                    <a data-toggle="collapse" href="#componentsExamples">
+                        <i class="material-icons">apps</i>
+                        <p> Componentes
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="componentsExamples">
+                        <ul class="nav">
+
+                            <li>
+                                <a href="./components/icons.html">
+                                    <span class="sidebar-mini"> I </span>
+                                    <span class="sidebar-normal"> Icons </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
             </ul>
+
         </div>
+
     </div>
 
     <div class="main-panel">
 
-        <nav class="navbar navbar-default " >
-            <div class="container-fluid" >
-                <div class="navbar-header" >
-                    <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar bar1"></span>
-                        <span class="icon-bar bar2"></span>
-                        <span class="icon-bar bar3"></span>
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-minimize">
+                    <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
+                        <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+                        <i class="material-icons visible-on-sidebar-mini">view_list</i>
                     </button>
-                    <a class="navbar-brand" href="#">User Profile</a>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"> Oficinas</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-                                <p>Stats</p>
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">dashboard</i>
+                                <p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-bell"></i>
-                                <p class="notification">5</p>
-                                <p>Notifications</p>
-                                <b class="caret"></b>
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="hidden-lg hidden-md">
+                                    Notifications
+                                    <b class="caret"></b>
+                                </p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
+                                <li>
+                                    <a href="#">Mike John responded to your email</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tu tienes 5 nuevas tareas</a>
+                                </li>
+                                <li>
+                                    <a href="#">You're now friend with Andrew</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another Notification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another One</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="ti-settings"></i>
-                                <p>Settings</p>
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">person</i>
+                                <p class="hidden-lg hidden-md">Profile</p>
                             </a>
                         </li>
+                        <li class="separator hidden-lg hidden-md"></li>
                     </ul>
-
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group form-search is-empty">
+                            <input type="text" class="form-control" placeholder=" Buscar ">
+                            <span class="material-input"></span>
+                        </div>
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </form>
                 </div>
             </div>
         </nav>
 
-<div class="main-content">
-    <div class="container-fluid">
+        <!-- Agregar codigo -->
 
+        <div class="content">
+            <div class="container-fluid">
 
-        <div class="row">
-            <jsp:useBean id="service" class="pe.com.coworking.services.CWService"/>
-            <form> </form>
-            <c:forEach var="office" items="${service.offices}">
-            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
 
-     <%--       <div class="col-lg-4 col-md-6">--%>
-                <div class="card card-product">
-                    <div class="card-image" data-header-animation="true">
-                        <a href="#pablo">
-                            <img class="img" src="image/${office.id}.jpg" >
-                        </a>
+                        <div class="card-content">
+                            <!--<div class="card-actions"> </div> -->
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <!--<div class="card-description">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Categoria</label>
+                                            <select name="categoryId" class="form-control">
+                                                <option disabled="" selected=""> </option>
+
+                                                <option value="101">Oficina</option>
+                                                <option value="102">Escritorio personal</option>
+                                                <option value="103">Hot desk</option>
+
+                                            </select>
+                                            <span class="material-input"></span></div>
+                                    </div>
+                                </div>
+                                -->
+
+                                    <div class="dropdown">
+
+                                        Ordenado
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"> Por:
+                                            <span class="caret"></span></button>
+
+                                        <!--cambio 08/10/2018 Kevin -->
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                            <li role="presentation"><a  href="offices?action=order&typeOrder=1" role="menuitem" tabindex="-1">Ubicación</a></li>
+                                            <li role="presentation"><a  href="offices?action=order&typeOrder=2" role="menuitem" tabindex="-1">Precio</a></li>
+                                            <li role="presentation"><a  href="#" role="menuitem" tabindex="-1">Evaluación</a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="card-content">
-                        <div class="card-actions">
-                            <button type="button" class="btn btn-danger btn-simple fix-broken-card">
-                                <i class="material-icons">build</i> Fix Header!
-                            </button>
-                            <a href="offices?action=list&id=<c:out value="${office.id}"/>"> <button  type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="View">
-                                <i class="material-icons">art_track</i>
-                            </button></a>
-                            <a href="offices?action=edit&id=<c:out value="${office.id}"/>"> <button href="prueba3.jsp" type="button" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Edit">
-                                <i class="material-icons" >edit</i>
-                            </button></a>
-                            <a href="offices?action=delete&id=<c:out value="${office.id}"/>"><button  type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="Remove" >
-                                <i class="material-icons">close</i>
-                            </button></a>
-                        </div>
-                        <h4 class="card-title">
-                            <a href="#pablo">${office.title}</a>
-                        </h4>
-                        <div class="card-description">
-                            ${office.description}
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="price">
-                            <h4>$${office.price}/night</h4>
-                        </div>
-                        <div class="stats pull-right">
-                            <p class="category"><i class="material-icons">place</i> ${office.address}</p>
+                </div>
+                <br>
+
+                <br>
+
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active" id="pill1">
+                        <div class="row">
+
+                            <jsp:useBean id="service" class="pe.com.coworking.services.CWService"/>
+
+                            <c:forEach var="office" items="${service.offices}">
+                                <div class="col-md-4">
+                                    <div class="card card-product">
+                                        <div class="card-image" data-header-animation="true">
+                                            <a href="#pablo">
+                                                <img class="img" src="image/${office.photo}" style="height: 200px">
+                                            </a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-actions">
+                                                <button type="button" class="btn btn-danger btn-simple fix-broken-card">
+                                                    <i class="material-icons">build</i> Fijar imagen
+                                                </button>
+                                                <a href="offices?action=list&id=<c:out value="${office.id}"/>">
+                                                    <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Detalle">
+                                                        <i class="material-icons">art_track</i>
+                                                    </button></a>
+                                                <a href="offices?action=edit&id=<c:out value="${office.id}"/>">
+                                                    <button href="prueba3.jsp" type="button" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Editar">
+                                                        <i class="material-icons">edit</i>
+                                                    </button></a>
+                                                <a href="offices?action=delete&id=<c:out value="${office.id}"/>">
+                                                    <button type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="Eliminar">
+                                                        <i class="material-icons">close</i>
+                                                    </button></a>
+
+                                                    <button  class="btn btn-warning btn-simple" rel="tooltip" data-toggle="modal" data-target="#noticeModal" data-placement="bottom" title="Rating">
+                                                        <i class="material-icons">star_rate</i>
+                                                    </button>
+
+                                            </div>
+                                            <h4 class="card-title">
+                                                <a href="#pablo"> ${office.title} </a>
+                                            </h4>
+                                            <div class="card-description">
+                                                    ${office.description}
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="price">
+                                                <h4>$${office.price}/night</h4>
+                                            </div>
+                                            <div class="stats pull-right">
+                                                <p class="category"><i class="material-icons">place</i> ${office.address} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </c:forEach>
+
                         </div>
                     </div>
                 </div>
-           <%-- </div>--%>
-</div>
-            </c:forEach>
 
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Nosotros
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Oficinas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Servicios
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="copyright pull-right">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.creative-tim.com"> Workspaces </a>, Todos los derechos reservados
+                        </p>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 text-center">
+<!-- notice modal -->
+<div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notice">
+        <div class="modal-content">
+
+            <form class="form" action="evaluations" method="post" >
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                <h5 class="modal-title" id="myModalLabel">Evaluación</h5>
+            </div>
+            <div class="modal-body">
+                <div class="instruction">
+                    <div class="row">
+                        <div class="col-md-12" >
+                            <strong>Seleccione un puntaje</strong><p></p>
+
+                            <div class='starrr' id='star2'></div>
+                            <br/>
+                            <div>&nbsp;
+                                <span class='your-choice-was' style='display: none;'>
+                                Tu puntaje es <span class='choice'></span>.
+                                </span>
+                            </div>
+
+                            <p>
+                            </p>
+
+                            <strong>Sugerencia</strong><p></p>
+
+                            <div class="col-md-12">
+                            <input type="text" class="form-control" name="commentary">
+                            </div>
+
+                            <input type='hidden' name="rating" value='3' id='star2_input' />
+
+                            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+                            <script src="js/starrr.js"></script>
+                            <script>
+                                $('#star1').starrr({
+                                    change: function(e, value){
+                                        if (value) {
+                                            $('.your-choice-was').show();
+                                            $('.choice').text(value);
+                                        } else {
+                                            $('.your-choice-was').hide();
+                                        }
+                                    }
+                                });
+
+                                var $s2input = $('#star2_input');
+                                $('#star2').starrr({
+                                    max: 5,
+                                    rating: $s2input.val(),
+                                    change: function(e, value){
+                                        $s2input.val(value).trigger('input')
+
+                                        if (value) {
+                                            $('.your-choice-was').show();
+                                            $('.choice').text(value);
+                                        } else {
+                                            $('.your-choice-was').hide();
+                                        }
+
+                                        ;
+                                    }
+                                });
+                            </script>
+                            <script type="text/javascript">
+                                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                                ga('create', 'UA-39205841-5', 'dobtco.github.io');
+                                ga('send', 'pageview');
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+                <p>Gracias por sus comentarios, Seguiremos mejorando el servicio</p>
+            </div>
+            <div class="modal-footer text-center">
+                <input type="hidden" value="${action == 'edit' ? "update" : "agregate"}" name="action" />
+                <button type="submit" class="btn btn-success btn-round" value="Ingresar">${action == 'edit' ? "Actualizar" : "Enviar"}</button>
+            </div>
+
+            </form>
 
         </div>
-
-
-
     </div>
 </div>
-
-
-
-
-
-    </div>
 </div>
-
-
+<!-- end notice modal -->
 
 </body>
 
-<script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+<!--   Core JS Files   -->
+<script src="js/Pruebas/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/Pruebas/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/Pruebas/material.min.js" type="text/javascript"></script>
+<script src="js/Pruebas/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<script src="js/Pruebas/jquery.tagsinput.js"></script>
+<!-- Material Dashboard javascript methods -->
+<script src="js/Pruebas/material-dashboard.js?v=1.2.1"></script>
 
-<script src="js/paper-dashboard.js"></script>
+<script src="js/Pruebas/bootstrap-notify.js"></script>
+
+<script src="js/Pruebas/demo.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<!-- Library for adding dinamically elements -->
+<script src="js/Pruebas/arrive.min.js" type="text/javascript"></script>
+<!-- Forms Validations Plugin -->
+<script src="js/Pruebas/jquery.validate.min.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+<script src="js/Pruebas/moment.min.js"></script>
+<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
+<script src="js/Pruebas/chartist.min.js"></script>
+<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+<script src="js/Pruebas/jquery.bootstrap-wizard.js"></script>
+
+<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+<script src="js/Pruebas/bootstrap-datetimepicker.js"></script>
+<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+<script src="js/Pruebas/jquery-jvectormap.js"></script>
+<!-- Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->
+<script src="js/Pruebas/nouislider.min.js"></script>
+
+<script src="js/Pruebas/jquery.select-bootstrap.js"></script>
+<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+<script src="js/Pruebas/jquery.datatables.js"></script>
+<!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
+<script src="js/Pruebas/sweetalert2.js"></script>
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="js/Pruebas/jasny-bootstrap.min.js"></script>
+<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+<script src="js/Pruebas/fullcalendar.min.js"></script>
 
 </html>

@@ -1,10 +1,10 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%--
   Created by IntelliJ IDEA.
   User: leone
-  Date: 16/04/2018
-  Time: 15:08
+  Date: 28/04/2018
+  Time: 21:28
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -13,7 +13,6 @@
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -31,12 +30,13 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="css/material/demo.css" rel="stylesheet" />
     <link href="css/material/vertical-nav.css" rel="stylesheet" />
-
 </head>
 
-<body class="login-page">
+<body class="signup-page ">
 
-<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+<jsp:useBean id="service" class="pe.com.coworking.services.CWService"/>
+
+<nav class="navbar  navbar-transparent    navbar-absolute  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="index.jsp"> Coworking </a>
@@ -48,27 +48,27 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="dropdown nav-item">
-                    <a href="#" class="nav-link" data-toggle="dropdown">
+                <li class=" nav-item">
+                    <a href="#" class=" nav-link" data-toggle="dropdown">
                         <i class="material-icons">apps</i> Nosotros
                     </a>
-                </li>
 
-                <li class="dropdown nav-item">
-                    <a href="#" class=" nav-link" data-toggle="dropdown">
+                </li>
+                <li class=" nav-item">
+                    <a href="#" class="nav-link" data-toggle="dropdown">
                         <i class="material-icons">view_day</i> Servicios
                     </a>
 
                 </li>
-                <li class="dropdown nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="dropdown">
                         <i class="material-icons">view_carousel</i> Oficinas
                     </a>
 
                 </li>
                 <li class=" nav-item">
-                    <a href="register3.jsp" class="nav-link" >
-                        <i class="material-icons">person_add</i> Registrar
+                    <a href="login.jsp" class=" nav-link">
+                        <i class="material-icons">fingerprint</i> Ingresar
                     </a>
 
                 </li>
@@ -76,109 +76,89 @@
         </div>
     </div>
 </nav>
-<div class="page-header header-filter" style="background-image: url(image/b1.jpg); background-size: cover; background-position: top center;">
-
-
-
-    <%
-        if (request.getAttribute("msg")=="Success") {
-    %>
-
-    <div class="alert alert-success">
-        <div class="container">
-            <div class="alert-icon">
-                <i class="material-icons">check</i>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-            </button>
-            <b>Success </b> Register
-        </div>
-    </div>
-
-    <%
-        } else if (request.getAttribute("msg")=="Error"){
-    %>
-
-    <div class="alert alert-danger">
-        <div class="container">
-            <div class="alert-icon">
-                <i class="material-icons">error_outline</i>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-            </button>
-            <b>Error </b> Register
-        </div>
-    </div>
-
-    <%
-        } else {
-
-        }
-    %>
-
-
+<div class="page-header header-filter"  style="background-image: url(image/LP4.jpg); background-size: cover; background-position: top center;">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+
+            <div class="col-md-5">
+                <h1 class="title"> Workspaces. </h1>
+                <h4> Espacio de trabajo bellamente diseñado creado para facilitar nuevas conexiones y que se adaptan a todas sus necesidades.
+                </h4>
+                <br>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-lg">
+                    <i class="fa fa-ticket"></i> Ver Oficinas
+                </a>
+                <p></p>
+                <div class="iframe-container">
+                    <iframe height="250" src="https://www.youtube.com/embed/mFq1TveYvn8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                </div>
+
+            </div>
+
+            <div class="col-md-5 ml-auto ">
                 <div class="card card-signup">
-                    <form class="form" method="post" action="login">
-                        <div class="card-header  text-center ">
-                            <h4 class="card-title">Iniciar sesion</h4>
-                            <h4 class="card-title"> workspaces </h4>
-                        </div>
-                        <b class="description text-center">.</b>
-                        <div class="card-body">
+                    <h2 class="card-title text-center">Registrar</h2>
+                    <div class="card-body">
 
-                            <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">email</i>
-                                    </span>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email...">
+                        <form class="form" action="users" method="post">
+                            <div class="form-group">
+                                <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                    <input type="text" class="form-control" placeholder=" Nombre " name="firstName">
+                                </div>
                             </div>
-                            <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">lock_outline</i>
-                                    </span>
-                                <input type="password" class="form-control" placeholder="Password..." id="pwd" name="password">
+                            <div class="form-group">
+                                <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                    <input type="text" class="form-control" placeholder=" Apellidos " name="lastName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">email</i>
+                                                </span>
+                                    <input type="text" class="form-control" placeholder="Correo electronico" name="email" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock_outline</i>
+                                                </span>
+                                    <input type="password" placeholder=" Contraseña " class="form-control" name="password" />
+                                </div>
                             </div>
 
-                        </div>
-                        <b class="description text-center">.</b>
-
-                        <div class="footer text-center">
-                            <button class="btn btn-success btn-round btn-wd btn-lg" type="submit" value="Ingresar" >Ingresar</button>
-                        </div>
-                        <b class="description text-center">.</b>
-
-                        <div class="form-row">
-                            <div class="col">
-                                <p class="description text-center"><a href="register3.jsp">Registrar</a></p>
+                            <div class="text-center">
+                                <input type="hidden" value="${action == 'edit' ? "update" : "agregate"}" name="action" />
+                                <button type="submit" class="btn btn-success btn-round" value="Ingresar">${action == 'edit' ? "Actualizar" : "Registrar"}</button>
                             </div>
-                            <div class="col">
-                                <p class="description text-center"><a href="">Follward</a></p>
-                            </div>
-                        </div>
 
-                    </form>
+                        </form>
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
-
-    <footer class="footer">
+    <footer class="footer ">
         <div class="container">
-            <nav class="float-left">
+            <nav class="pull-left">
                 <ul>
                     <li>
-                        <a href="http://www.creative-tim.com">
+                        <a href="https://www.creative-tim.com">
                             Workspaces
                         </a>
                     </li>
                     <li>
                         <a href="http://presentation.creative-tim.com">
-                            Servicios
+                            Nosotros
                         </a>
                     </li>
                     <li>
@@ -189,12 +169,12 @@
 
                 </ul>
             </nav>
-            <div class="copyright float-right">
-                &#xA9;
+            <div class="copyright pull-right">
+                &copy;
                 <script>
                     document.write(new Date().getFullYear())
-                </script>, Diseñado   por
-                <a href="http://www.creative-tim.com" target="_blank">Coworking</a>
+                </script> Diseñado por
+                <a href="https://www.creative-tim.com" target="_blank">Workspaces</a>
             </div>
         </div>
     </footer>
@@ -226,6 +206,7 @@
 <script src="js/materials/vertical-nav.js"></script>
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
 </body>
 
 </html>

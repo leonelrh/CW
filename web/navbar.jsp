@@ -48,7 +48,7 @@
 
         <div class="sidebar-wrapper" >
             <div class="logo">
-                <a href="index.jsp" class="simple-text">
+                <a href="indexp.jsp" class="simple-text">
                     CoWorking
                 </a>
             </div>
