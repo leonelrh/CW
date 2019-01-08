@@ -12,7 +12,6 @@ import java.util.List;
 public class CWService {
     private Connection connection;
     private CWDataStore dataStore;
-
     public CWService(InitialContext ctx) {
         try {
             connection = ((DataSource) ctx.lookup("jdbc/MySQLDataSource1"))
@@ -24,27 +23,26 @@ public class CWService {
         }
     }
     public CWService(){
-        try{
+
+        try {
             InitialContext ctx = new InitialContext();
-            connection = ((DataSource) ctx.lookup("jdbc/MySQLDataSource1")).getConnection();
+            connection = ((DataSource) ctx.lookup("jdbc/MySQLDataSource1"))
+                    .getConnection();
         } catch (NamingException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
     private Connection getConnection() {
         return connection;
     }
-
     private CWDataStore getDataStore() {
         if(dataStore == null) {
             dataStore = new CWDataStore(getConnection());
         }
         return dataStore;
     }
-
 
     public List<Office> getOffices() { return getDataStore().findAllOffices(); }
 
@@ -53,6 +51,8 @@ public class CWService {
     public List<User> getUsers(){return getDataStore().findAllUsers();}
 
     public List<Country> getCountries(){return getDataStore().findAllCountries();}
+
+    public List<City> getCity(){return getDataStore().findAllCities();}
 
     public List<City> getCities(int id){return getDataStore().findAllCityById(id);}
 
@@ -90,10 +90,22 @@ public class CWService {
 
     public List<User> getUsersById(int id){ return getDataStore().findAllByIdUsers(id); }
 
+    public Reservation getReservationById(int id){return getDataStore().findReservationById(id);}
+
+    public boolean addReservation(Reservation reservation){return getDataStore().addReservation(reservation);}
+
+    public boolean addEvaluation(Commentary commentary){return getDataStore().addCommentary(commentary);}
+
+    public boolean updateReservation(Reservation reservation){return getDataStore().updateReservation(reservation);}
+
+    public boolean deleteReservation(Reservation reservation){return getDataStore().deleteReservation(reservation);}
 
 
+    //public boolean deleteOffice(Office office){ return getDataStore().deleteOffice(office);}
+    public boolean deleteOfficeLogic(String id){ return getDataStore().deleteOfficeLogic(id);}
 
-    public boolean deleteOffice(Office office){ return getDataStore().deleteOffice(office);}
+    public List<Office> getOfficesOrderByX(int typeOrder) { return getDataStore().findAllOfficesOrderByX(""+typeOrder); }
 
+    public List<Office> getOfficeByCategory(int category){ return getDataStore().findAllByCategoryOffice(category); }
 
 }

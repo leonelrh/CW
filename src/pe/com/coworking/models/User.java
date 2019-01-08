@@ -3,6 +3,8 @@ package pe.com.coworking.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class User {
 
     private int id;

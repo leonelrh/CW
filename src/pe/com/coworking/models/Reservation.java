@@ -17,17 +17,16 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int id, Date starDate, String state, Date endDate, float hours, boolean paid, User user, Office office) {
-        this.setId(id);
-        this.setStarDate(starDate);
-        this.setState(state);
-        this.setEndDate(endDate);
-        this.setHours(hours);
-        this.setPaid(paid);
-        this.setUser(user);
-        this.setOffice(office);
+    public Reservation (int id, Date starDate, String state, Date endDate, float hours, boolean paid, User user, Office office) {
+        this.id = id;
+        this.starDate = starDate;
+        this.state = state;
+        this.endDate = endDate;
+        this.hours = hours;
+        this.paid = paid;
+        this.user = user;
+        this.office = office;
     }
-
 
     public int getId() {
         return id;
@@ -85,7 +84,7 @@ public class Reservation {
         return hours;
     }
 
-    public String getHoursAsString(){return String.valueOf(getState());}
+    public String getHoursAsString(){return String.valueOf(getHours());}
 
     public Reservation setHours(float hours) {
         this.hours = hours;
@@ -107,8 +106,7 @@ public class Reservation {
         return user;
     }
 
-    public String getUserAsValue(){return "'" +
-    getUser()+"'";}
+    public String getUserAsValue(){return "'" + getUser()+"'";}
 
     public Reservation setUser(User user) {
         this.user = user;
@@ -130,7 +128,6 @@ public class Reservation {
                                     CategoryEntity categoryEntity,
                                     CityEntity cityEntity,
                                     CountryEntity countryEntity){
-
         try {
             return (new Reservation())
                     .setId(resultSet.getInt("id"))

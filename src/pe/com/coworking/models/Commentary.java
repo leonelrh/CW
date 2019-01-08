@@ -4,14 +4,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-
 public class Commentary {
-    private User user;
-    private Office office;
+
+    private int id;
     private String comment;
     private Date dateComment;
     private String evaluation;
+    private User user;
+    private Office office;
 
+    public Commentary() {
+    }
+
+    public Commentary(int id, User user, Office office, String comment, Date dateComment, String evaluation) {
+        this.id = id;
+        this.user = user;
+        this.office = office;
+        this.comment = comment;
+        this.dateComment = dateComment;
+        this.evaluation = evaluation;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Commentary setId(int id) {
+        this.id = id;
+        return this;
+    }
 
     public User getUser() {
         return user;
@@ -35,6 +56,8 @@ public class Commentary {
         return comment;
     }
 
+    public String getCommentAsValue(){return "'" + getComment() + "'";}
+
     public Commentary setComment(String comment) {
         this.comment = comment;
         return this;
@@ -44,6 +67,10 @@ public class Commentary {
         return dateComment;
     }
 
+
+    public String getDateCommentAsValue(){return "'" + getDateComment() + "'";}
+
+
     public Commentary setDateComment(Date dateComment) {
         this.dateComment = dateComment;
         return this;
@@ -52,6 +79,8 @@ public class Commentary {
     public String getEvaluation() {
         return evaluation;
     }
+
+    public String getEvaluationAsValue(){return "'" + getEvaluation() + "'";}
 
     public Commentary setEvaluation(String evaluation) {
         this.evaluation = evaluation;
@@ -63,6 +92,10 @@ public class Commentary {
     {
         try {
             return (new Commentary())
+                    .setId(resultSet.getInt("idevaluation"))
+                    .setComment(resultSet.getString("commentary"))
+                    .setDateComment(resultSet.getDate("date_commentary"))
+                    .setEvaluation(resultSet.getString("valoracion"))
                     .setUser(userEntity.findById(resultSet.getInt("usuarios_id")))
                     .setOffice(officeEntity.findById(resultSet.getInt("offices_id"),categoryEntity,cityEntity,countryEntity));
 

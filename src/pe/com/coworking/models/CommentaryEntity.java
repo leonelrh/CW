@@ -54,14 +54,27 @@ public class CommentaryEntity extends BaseEntity {
     }
 
 
+    private int getMaxId() {
+        String sql = "SELECT MAX(idevaluation) AS id FROM evaluation";
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            return resultSet.next() ?
+                    resultSet.getInt("id") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
     public boolean add(Commentary commentary) {
-        String sql = "INSERT INTO comments (usuarios_id, offices_id, comentario,date_comment,evaluacion) VALUES(" +
-                commentary.getUser().getIdAsString() + ", " +
-                commentary.getOffice().getIdAsString() + ", " +
-                commentary.getComment()+", " +
-                commentary.getDateComment()+", " +
-                commentary.getEvaluation()+ ", " +
-                ")";
+        int id = getMaxId()+ 1;
+        String sql = "INSERT INTO evaluation (idevaluation, commentary, date_commentary, valoracion, users_id, offices_id) " +
+                " VALUES (" + id + ", " + commentary.getCommentAsValue() + ", " +
+                commentary.getDateCommentAsValue()+", " + commentary.getEvaluationAsValue()+", " +
+                commentary.getUser().getIdAsString()+", " + commentary.getOffice().getIdAsString()+ ")";
         return change(sql);
     }
 

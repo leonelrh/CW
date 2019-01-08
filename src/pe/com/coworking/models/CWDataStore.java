@@ -139,11 +139,9 @@ public class CWDataStore {
     }
 
 
-
     public List<Service> findAllServiceByoffice(String id){return getServiceEntity().findAllId(id,getOfficeEntity(),getCategoryEntity(),getCityEntity(),getCountryEntity());}
 
     public List<Office> findAllOfficesById(int id){return getOfficeEntity().findAllId (id,getCategoryEntity(),getCityEntity(),getCountryEntity());}
-
 
     public User findUserById(int id){return getUserEntity().findById(id);}
 
@@ -157,11 +155,22 @@ public class CWDataStore {
 
     public boolean updateOffice(Office office){return getOfficeEntity().update(office);}
 
-
-
     public List<User> findAllByIdUsers(int id){return  getUserEntity().findAllById(id);}
 
-    public boolean deleteOffice(Office office){return getOfficeEntity().delete(office);}
+    public boolean deleteReservation(Reservation reservation){return getReservationEntity().delete(reservation);}
 
+    public boolean updateReservation(Reservation reservation){return getReservationEntity().update(reservation);}
 
+    public boolean addReservation(Reservation reservation){return getReservationEntity().add(reservation);}
+
+    public boolean addCommentary(Commentary commentary){return getCommentaryEntity().add(commentary);}
+
+    public Reservation findReservationById(int id){return getReservationEntity().findById(id,getUserEntity(),getOfficeEntity(),getCategoryEntity(),getCityEntity(),getCountryEntity());}
+
+    //public boolean deleteOffice(Office office){return getOfficeEntity().delete(office);}
+    public boolean deleteOfficeLogic(String id){return getOfficeEntity().delete(id);}
+
+    public List<Office> findAllOfficesOrderByX(String typeOrder){ return getOfficeEntity().findAllOfficesOrderByX(typeOrder,getCategoryEntity(),getCityEntity(),getCountryEntity()); }
+
+    public List<Office> findAllByCategoryOffice(int id){return  getOfficeEntity().findAllByCategory(id,getCategoryEntity(),getCityEntity(),getCountryEntity());}
 }

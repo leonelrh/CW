@@ -26,9 +26,9 @@ public class ReservationEntity extends BaseEntity {
         return findByCriteria("",userEntity,officeEntity,categoryEntity,cityEntity,countryEntity);
     }
 
-    public Reservation findById(String id,UserEntity userEntity,OfficeEntity officeEntity,
+    public Reservation findById(int id,UserEntity userEntity,OfficeEntity officeEntity,
                                 CategoryEntity categoryEntity,CityEntity cityEntity,CountryEntity countryEntity){
-        String criteria = "id = " + "'" + id + "'";
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria,userEntity,officeEntity,categoryEntity,cityEntity,countryEntity).get(0);
     }
 
@@ -55,13 +55,27 @@ public class ReservationEntity extends BaseEntity {
         return null;
     }
 
+    private int getMaxId() {
+        String sql = "SELECT MAX(id) AS id FROM reservations";
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            return resultSet.next() ?
+                    resultSet.getInt("id") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     public  boolean add(Reservation reservation) {
-        return change("INSERT INTO reservations(id,start_date,state,end_date,hours,paid,usuarios_id,offices_id)" +
-                "VALUES (" + reservation.getIdAsString() + ", " +
+        int id = getMaxId()+ 1;
+        return change("INSERT INTO reservations (id, start_date, state, end_date, hours, paid, usuarios_id, offices_id) " +
+                "VALUES (" + id + ", " +
                 reservation.getStarDateAsValue() + ", " + reservation.getStateAsValue() + ", " +
                 reservation.getEndDateAsValue() + ", " + reservation.getHoursAsString() + ", " + reservation.getPaidAsString() + ", " +
-                reservation.getUser().getIdAsString()+ ", " +reservation.getOffice().getIdAsString()+
-                " )" );
+                reservation.getUser().getIdAsString()+ ", " +reservation.getOffice().getIdAsString()+ ")" );
     }
 
 

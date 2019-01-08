@@ -16,24 +16,26 @@ public class Office {
      private Category category;
      private City city;
      private String description;
+     private String coordinates;
 
     public Office() {
     }
 
-    public Office(int id, String title, int capacity, String address, float price, String photo, String state, String phone, Category category, City city, String description) {
-        this.setId(id);
-        this.setTitle(title);
-        this.setCapacity(capacity);
-        this.setAddress(address);
-        this.setPrice(price);
-        this.setPhoto(photo);
-        this.setState(state);
-        this.setPhone(phone);
-        this.setCategory(category);
-        this.setCity(city);
-        this.setDescription(description);
-    }
 
+    public Office(int id, String title, int capacity, String address, float price, String photo, String state, String phone, Category category, City city, String description, String coordinates) {
+        this.id = id;
+        this.title = title;
+        this.capacity = capacity;
+        this.address = address;
+        this.price = price;
+        this.photo = photo;
+        this.state = state;
+        this.phone = phone;
+        this.category = category;
+        this.city = city;
+        this.description = description;
+        this.coordinates = coordinates;
+    }
 
     public int getId() {
         return id;
@@ -161,6 +163,18 @@ public class Office {
         return this;
     }
 
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public String getCoordinatesAsValue(){return "'" + getCoordinates() + "'" ;}
+
+    public Office setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+        return this;
+    }
+
     public static Office build(ResultSet resultSet, CityEntity cityEntity,CategoryEntity categoryEntity,CountryEntity countryEntity){
 
         try {
@@ -175,12 +189,14 @@ public class Office {
                     .setPhone(resultSet.getString("phone"))
                     .setCategory(categoryEntity.findById(resultSet.getInt("categories_id")))
                     .setCity(cityEntity.findById(resultSet.getInt("cities_id"),countryEntity))
-                    .setDescription(resultSet.getString("descripcion"));
+                    .setDescription(resultSet.getString("descripcion"))
+                    .setCoordinates(resultSet.getString("coordinates"));
         }catch (SQLException e){
             e.printStackTrace();
         }
         return null;
     }
+
 
 
 }

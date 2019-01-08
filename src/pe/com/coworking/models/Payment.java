@@ -114,7 +114,7 @@ public class Payment {
                     .setCardNumber(rs.getInt("card_number"))
                     .setExpiredDate(rs.getDate("expired_date"))
                     .setCvc(rs.getString("cvc"))
-                    .setReservation(reservationEntity.findById(rs.getString("organizer_id"),userEntity,
+                    .setReservation(reservationEntity.findById(rs.getInt("organizer_id"),userEntity,
                             officeEntity,categoryEntity,cityEntity,countryEntity));
         } catch (SQLException e) {
             e.printStackTrace();

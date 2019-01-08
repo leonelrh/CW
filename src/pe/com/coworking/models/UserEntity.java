@@ -126,8 +126,8 @@ public class UserEntity extends BaseEntity{
 
     public boolean add(User user){
         int id = getMaxId()+ 1;
-        String sql= "INSERT INTO users (id, first_name, last_name, email,password,dni,photo,phone,points,address) " +
-                "VALUES(" + id + ", " + user.getFirstNameAsValue()+" ,"+
+        String sql = "INSERT INTO users (id, first_name, last_name, email,password,dni,photo,phone,points,address) " +
+                "VALUES (" + id + ", " + user.getFirstNameAsValue()+" ,"+
                 user.getLastNameAsValue() +", "+user.getEmailAsValue()+", "+ user.getPasswordAsValue() +", "+
                 user.getDniAsValue()+", "+user.getPhotoAsValue()+", "+user.getPhoneAsValue()+", "+user.getPointAsString()+ ", "+user.getAddressAsValue()+ ")";
         return change(sql);
@@ -146,6 +146,7 @@ public class UserEntity extends BaseEntity{
         ", photo = " + user.getPhotoAsValue()+
         ", phone = " + user.getPhoneAsValue() +
         ", points = "+ user.getPointAsString()+
+        ", address = "+ user.getAddressAsValue()+
         " WHERE id = " +user.getIdAsString());
     }
 }

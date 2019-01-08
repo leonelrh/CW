@@ -26,6 +26,12 @@ public class OfficeEntity extends BaseEntity{
         return findByCriteria(criteria,categoryEntity,cityEntity,countryEntity);
     }
 
+    public List<Office> findAllByCategory(int id,CategoryEntity categoryEntity,
+                                          CityEntity cityEntity,CountryEntity countryEntity){
+        String criteria = " categories_id = " + String.valueOf(id);
+        return findByCriteria(criteria,categoryEntity,cityEntity,countryEntity);
+    }
+
     public Office findById(int id,CategoryEntity categoryEntity,
                            CityEntity cityEntity ,CountryEntity countryEntity){
         String criteria = " id = " + String.valueOf(id);
@@ -33,7 +39,7 @@ public class OfficeEntity extends BaseEntity{
     }
 
     public List<Office> findByCriteria(String criteria, CategoryEntity categoryEntity,CityEntity cityEntity,CountryEntity countryEntity) {
-        String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
+        String sql = getDefaultQuery() + (criteria.isEmpty() ? " where state='1' " : " WHERE state='1' and " + criteria);
         List<Office> offices = new ArrayList<>();
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
@@ -63,7 +69,7 @@ public class OfficeEntity extends BaseEntity{
 
     public boolean add(Office office){
         int id = getMaxId()+ 1;
-        String sql="INSERT INTO offices(id,titulo,capacity,address,price,photo,state,phone,categories_id,cities_id,descripcion) VALUES (" +
+        String sql="INSERT INTO offices(id,titulo,capacity,address,price,photo,state,phone,categories_id,cities_id,descripcion,coordinates) VALUES (" +
                 id + ", " +
                 office.getTitleAsValue()+ ", " +
                 office.getCapacityAsString()+", "+
@@ -74,7 +80,8 @@ public class OfficeEntity extends BaseEntity{
                 office.getPhoneAsValue()+", " +
                 office.getCategory().getIdAsString()+ ", " +
                 office.getCity().getIdAsString()+ ", " +
-                office.getDescriptionAsValue()+ ")";
+                office.getDescriptionAsValue()+", " +
+                office.getCoordinatesAsValue()+ ")";
         return change(sql);
     }
 
@@ -95,11 +102,27 @@ public class OfficeEntity extends BaseEntity{
         return change(sql);
     }
 
-    public boolean delete(Office office){
-        String sql="DELETE FROM offices WHERE id = " +
-                office.getIdAsString();
+    public boolean delete(/*Office office*/ String id){
+        String sql="UPDATE offices set state='0'  WHERE id = " +id;
+        // office.getIdAsString();
         return change(sql);
     }
 
+
+    public  List<Office> findAllOfficesOrderByX(String typeOrder,CategoryEntity categoryEntity,CityEntity cityEntity,CountryEntity countryEntity){
+        String sql= "call GetOfficesForOrderByX('"+typeOrder+"');";
+        List<Office> offices = new ArrayList<>();
+
+        try {
+            ResultSet rs = getConnection().createStatement().executeQuery(sql);
+            if(rs == null) return null;
+            while(rs.next()) offices.add(Office.build(rs,cityEntity,categoryEntity,countryEntity));
+            return offices;
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return offices;
+
+    }
 
 }
